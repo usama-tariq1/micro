@@ -1,8 +1,15 @@
-<h1>home </h1>
 
-{ for user in data }
+{layout 'base.html' }
 
-<h1> {{ user.u_name }} </h1>
+{block content}
 
 
-{ endfor }
+
+{foreach $data['users'] as $user }
+    
+    <a href="aboutus" > <h1> {$user['u_name'] } </h2> </a>
+{/foreach}
+
+
+
+{/block}

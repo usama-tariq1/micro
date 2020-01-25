@@ -3,5 +3,7 @@
     "description": "PHP Micro Framework",
     "type": "project",
     "license": "non",
-    "require": {}
+    "require": {
+        "latte/latte": "^2.6"
+    }
 }

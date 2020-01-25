@@ -8,20 +8,31 @@ class Controller extends Database
 
     private static function renderer()
     {
-        $loader = new \Twig\Loader\FilesystemLoader('views');
+        // $loader = new \Twig\Loader\FilesystemLoader('views');
 
 
-        $twig = new \Twig\Environment($loader);
+        // $twig = new \Twig\Environment($loader);
 
-        $lexer = new Twig\Lexer($twig, array(
-            'tag_block'    => array('{', '}'),
-            'tag_variable' => array('{{', '}}')
+        // // $lexer = new Twig\Lexer($twig, array(
+        // //     'tag_block'    => array('{', '}'),
+        // //     'tag_variable' => array('{{', '}}')
 
 
-        ));
+        // // ));
 
-        $twig->setLexer($lexer);
-        return $twig;
+        // // $twig->setLexer($lexer);
+        // return $twig;
+
+
+        $loader = new Latte\Loaders\FileLoader('views');
+        $latte = new Latte\Engine();
+        $latte->setLoader($loader);
+
+        // $latte->setTempDirectory('views');
+
+
+
+        return $latte;
     }
 
     public static function CreateView($viewname)
@@ -29,6 +40,6 @@ class Controller extends Database
 
         // require_once('./Views/' . $viewname . '.html');
         $data = static::showData();
-        echo self::renderer()->render($viewname . ".html", ["data" => $data]);
+        echo self::renderer()->render($viewname . ".html", ['data' =>  $data]);
     }
 }

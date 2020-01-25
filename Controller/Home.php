@@ -7,9 +7,12 @@ class Home extends Controller
 {
     public static function showData()
     {
-        $data = self::all();
-        echo 'home data';
-        return $data;
+
+        $users = self::all();
+
+        // echo 'home data';
+
+        return ['users' => $users];
         // foreach ($data as $d) {
         //     echo $d['u_name'] . "</br>";
         // }

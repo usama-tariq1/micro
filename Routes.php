@@ -1,5 +1,11 @@
 <?php
 
+// $args = $_SERVER['request_uri'];
+
+// $args = explode('/', $args);
+
+
+
 Route::set('index.php', function () {
     Home::CreateView('index');
 });
